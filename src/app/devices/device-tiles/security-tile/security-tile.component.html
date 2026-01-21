@@ -1,0 +1,22 @@
+<mat-card class="!rounded-3xl !border !border-slate-200 !shadow-none">
+  <div class="p-5 flex items-center justify-between border-b border-slate-200">
+    <div class="font-semibold flex items-center gap-2">
+      <mat-icon>security</mat-icon>
+      OS & Security Status
+    </div>
+    <app-status-pill
+      [text]="postureLabel()"
+      [tone]="postureTone()">
+    </app-status-pill>
+  </div>
+
+  <div class="p-5 grid grid-cols-2 gap-3">
+    <app-metric label="OS" [value]="osLine()" />
+    <app-metric label="Up-to-date" [value]="yesNo(device().upToDate)" />
+    <app-metric label="Sec. updates" [value]="num(device().pendingSecurityUpdates)" />
+    <app-metric label="AV status" [value]="device().avStatus ?? '—'" />
+    <div class="col-span-2">
+      <app-metric label="Encryption" [value]="device().encryption ?? '—'" hint="Laptop drive encryption status" />
+    </div>
+  </div>
+</mat-card>

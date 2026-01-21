@@ -1,0 +1,64 @@
+<div class="min-h-screen bg-zinc-950 text-slate-100 flex items-center justify-center px-4">
+  <mat-card class="!rounded-3xl !border !border-white/10 !bg-white/5 !text-slate-100 !shadow-none w-full max-w-md overflow-hidden">
+
+    <!-- card header -->
+    <div class="p-6 border-b border-white/10">
+      <div class="flex items-center gap-3">
+        <div class="h-10 w-10 rounded-2xl bg-cyan-500/20 border border-cyan-400/30 flex items-center justify-center font-bold">S</div>
+        <div>
+          <div class="font-semibold">Log in</div>
+          <div class="text-xs text-slate-400">Email + verification code</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-6 space-y-4">
+      <!-- email login -->
+      @if (step() === 'email'){
+        <form [formGroup]="emailForm" class="space-y-4">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" placeholder="you@company.com" class="!text-slate-100"/>
+          </mat-form-field>
+
+          <button mat-flat-button class="!rounded-full !bg-cyan-500 !text-slate-900 !w-full !py-6 !hover:bg-cyan-700"
+                  [disabled]="emailForm.invalid"
+                  (click)="sendCode()">
+            Send code
+          </button>
+
+          <a class="text-sm text-slate-300 hover:text-white" routerLink="/">
+            ← Back to landing
+          </a>
+        </form>
+      }
+
+      <!-- verification code -->
+      @if (step() === 'code'){
+        <form [formGroup]="codeForm" class="space-y-4">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Verification code</mat-label>
+            <input matInput formControlName="code" placeholder="123456" class="!text-slate-100"/>
+            <mat-icon matSuffix>password</mat-icon>
+          </mat-form-field>
+
+          <button mat-flat-button class="!rounded-full !bg-cyan-500 !text-slate-900 !w-full !py-6"
+                  [disabled]="codeForm.invalid"
+                  (click)="verifyCode()">
+            Verify & continue
+          </button>
+
+          <button mat-stroked-button class="!rounded-full !border-white/20 !text-slate-100 !w-full"
+                  (click)="step.set('email')">
+            Use a different email
+          </button>
+        </form>
+      }
+
+
+      <div class="text-xs text-slate-400">
+        (Demo auth) In production, send code via Quarkus, verify, then store JWT.
+      </div>
+    </div>
+  </mat-card>
+</div>

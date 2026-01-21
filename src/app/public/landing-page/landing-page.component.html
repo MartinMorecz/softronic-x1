@@ -1,0 +1,208 @@
+<div class="min-h-screen bg-[#070A12] text-slate-100">
+  <mat-toolbar class="!bg-transparent !text-slate-100">
+    <div class="mx-auto w-full max-w-6xl flex items-center justify-between px-2">
+      <div class="flex items-center gap-3">
+        <div class="h-10 w-10 rounded-2xl bg-cyan-500/20 border border-cyan-400/30 flex items-center justify-center font-bold">
+          S
+        </div>
+        <div class="leading-tight">
+          <div class="font-semibold tracking-wide">Softronic</div>
+          <div class="text-xs text-slate-400">Device Health & Status Dashboard</div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button mat-stroked-button class="!rounded-full !border-cyan-400/40 !text-cyan-100"
+                (click)="goLogin()">
+          Log in
+        </button>
+        <button mat-flat-button class="!rounded-full !bg-cyan-500 !text-slate-900"
+                (click)="goLogin()">
+          Get started free
+        </button>
+      </div>
+    </div>
+  </mat-toolbar>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-cyan-500/10 via-transparent to-transparent"></div>
+    <div class="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-cyan-500/10 blur-3xl"></div>
+    <div class="absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl"></div>
+
+    <div class="relative mx-auto w-full max-w-6xl px-4 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <p class="text-cyan-200/80 text-sm tracking-wide font-mono">MONITORING WITHOUT THE BLOAT</p>
+        <h1 class="mt-3 text-4xl md:text-5xl font-semibold tracking-tight">
+          Know when your devices are in trouble – before you are.
+        </h1>
+        <p class="mt-4 text-lg text-slate-300 max-w-xl">
+          Softronic gives you a real-time health dashboard for all your machines – CPU, RAM, disk,
+          battery and uptime in one place.
+        </p>
+
+        <div class="mt-7 flex flex-col sm:flex-row gap-3">
+          <button mat-flat-button class="!rounded-full !bg-cyan-500 !text-slate-900 !px-7 !py-6"
+                  (click)="goLogin()">
+            Get started free
+            <mat-icon class="ml-1">arrow_forward</mat-icon>
+          </button>
+          <button mat-stroked-button class="!rounded-full !border-slate-600 !text-slate-100 !px-7 !py-6"
+                  (click)="goLogin()">
+            Already have an account? Log in
+          </button>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-3 text-sm text-slate-300">
+            <span class="inline-flex items-center gap-2 font-mono">
+              <span class="h-2 w-2 rounded-full bg-cyan-400"></span> CPU 37%
+            </span>
+          <span class="inline-flex items-center gap-2 font-mono">
+              <span class="h-2 w-2 rounded-full bg-emerald-400"></span> Disk OK
+            </span>
+          <span class="inline-flex items-center gap-2 font-mono">
+              <span class="h-2 w-2 rounded-full bg-amber-400"></span> Updates pending
+            </span>
+        </div>
+      </div>
+
+      <!-- Mock dashboard illustration -->
+      <div class="rounded-3xl border border-cyan-400/20 bg-white/5 backdrop-blur p-5 shadow-[0_0_0_1px_rgba(34,211,238,0.08)]">
+        <div class="flex items-center justify-between border-b border-white/10 pb-3">
+          <div class="font-semibold">Fleet Overview</div>
+          <div class="text-xs text-slate-400 font-mono">LIVE</div>
+        </div>
+
+        <div class="mt-4 grid grid-cols-2 gap-3">
+          <div class="rounded-2xl border border-white/10 bg-black/20 p-4">
+            <div class="text-xs text-slate-400 font-mono">ONLINE DEVICES</div>
+            <div class="mt-1 text-2xl font-semibold">42</div>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-black/20 p-4">
+            <div class="text-xs text-slate-400 font-mono">ALERTS (24H)</div>
+            <div class="mt-1 text-2xl font-semibold">9</div>
+          </div>
+        </div>
+
+        <div class="mt-4 rounded-2xl border border-white/10 bg-black/20 p-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="font-semibold">Device tiles</div>
+              <div class="text-xs text-slate-400">Battery is just one tile</div>
+            </div>
+            <mat-icon>grid_view</mat-icon>
+          </div>
+
+          <div class="mt-4 grid sm:grid-cols-2 gap-3">
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-3">
+              <div class="text-sm font-semibold flex items-center gap-2"><mat-icon>speed</mat-icon> Performance</div>
+              <div class="text-xs text-slate-400 font-mono mt-1">CPU avg 38% · spikes 92%</div>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-3">
+              <div class="text-sm font-semibold flex items-center gap-2"><mat-icon>storage</mat-icon> Storage</div>
+              <div class="text-xs text-slate-400 font-mono mt-1">Disk free 18% · SMART OK</div>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-3">
+              <div class="text-sm font-semibold flex items-center gap-2"><mat-icon>wifi</mat-icon> Network</div>
+              <div class="text-xs text-slate-400 font-mono mt-1">Latency 32ms · loss 0.2%</div>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-3">
+              <div class="text-sm font-semibold flex items-center gap-2"><mat-icon>security</mat-icon> Security</div>
+              <div class="text-xs text-slate-400 font-mono mt-1">Updates pending · AV enabled</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="mx-auto w-full max-w-6xl px-4 py-14">
+    <h2 class="text-3xl font-semibold">How it works</h2>
+    <div class="mt-6 grid md:grid-cols-3 gap-4">
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+        <div class="text-cyan-200 font-semibold flex items-center gap-2"><mat-icon>download</mat-icon> Install the agent</div>
+        <p class="mt-2 text-slate-300">Download the Softronic agent on your device.</p>
+      </div>
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+        <div class="text-cyan-200 font-semibold flex items-center gap-2"><mat-icon>dashboard</mat-icon> One dashboard</div>
+        <p class="mt-2 text-slate-300">CPU, RAM, disk and battery at a glance.</p>
+      </div>
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+        <div class="text-cyan-200 font-semibold flex items-center gap-2"><mat-icon>notifications</mat-icon> Get alerts</div>
+        <p class="mt-2 text-slate-300">Email alerts when thresholds are crossed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES GRID -->
+  <section class="mx-auto w-full max-w-6xl px-4 pb-14">
+    <h2 class="text-3xl font-semibold">Features</h2>
+    <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <ng-container *ngFor="let f of features">
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+          <div class="flex items-center gap-2 text-cyan-200 font-semibold">
+            <mat-icon>{{ f.icon }}</mat-icon> {{ f.title }}
+          </div>
+          <p class="mt-2 text-slate-300">{{ f.desc }}</p>
+        </div>
+      </ng-container>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="mx-auto w-full max-w-6xl px-4 pb-14">
+    <h2 class="text-3xl font-semibold">Who it’s for</h2>
+    <div class="mt-6 grid md:grid-cols-3 gap-4">
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+        <div class="font-semibold text-slate-100">Solo devs & power users</div>
+        <p class="mt-2 text-slate-300">Track all your personal machines from one place.</p>
+      </div>
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+        <div class="font-semibold text-slate-100">Small teams</div>
+        <p class="mt-2 text-slate-300">Keep an eye on everyone’s laptops and endpoints.</p>
+      </div>
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+        <div class="font-semibold text-slate-100">Freelancers & agencies</div>
+        <p class="mt-2 text-slate-300">Monitor client devices or servers with simple alerts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING TEASER -->
+  <section class="mx-auto w-full max-w-6xl px-4 pb-14">
+    <div class="rounded-3xl border border-cyan-400/20 bg-gradient-to-b from-white/5 to-transparent p-8">
+      <h2 class="text-3xl font-semibold">Pricing (early)</h2>
+      <p class="mt-2 text-slate-300">No billing yet—just early access.</p>
+
+      <div class="mt-6 grid md:grid-cols-2 gap-4">
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+          <div class="font-semibold">Free</div>
+          <div class="text-slate-300 mt-1">Up to 5 devices</div>
+        </div>
+        <div class="rounded-3xl border border-cyan-400/20 bg-cyan-500/10 p-6">
+          <div class="font-semibold">Pro</div>
+          <div class="text-slate-300 mt-1">More devices & full history (coming soon)</div>
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <button mat-flat-button class="!rounded-full !bg-cyan-500 !text-slate-900 !px-7 !py-6" (click)="goLogin()">
+          Get early access
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10">
+    <div class="mx-auto w-full max-w-6xl px-4 py-10 flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
+      <div class="text-sm text-slate-400">Softronic – device health without the enterprise bloat.</div>
+      <div class="flex items-center gap-4 text-sm">
+        <a class="text-slate-300 hover:text-white" href="#">About</a>
+        <a class="text-slate-300 hover:text-white" href="#">Privacy</a>
+        <a class="text-slate-300 hover:text-white" href="mailto:hello@softronic.io">Contact</a>
+      </div>
+    </div>
+  </footer>
+</div>

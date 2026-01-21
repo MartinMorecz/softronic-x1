@@ -1,0 +1,14 @@
+<mat-card class="!rounded-3xl !border !border-slate-200 !shadow-none">
+  <div class="p-5 flex items-center justify-between border-b border-slate-200">
+    <div class="font-semibold flex items-center gap-2">
+      <mat-icon>battery_std</mat-icon>
+      Battery
+    </div>
+    <div class="text-xs text-slate-500" *ngIf="device().charging">Charging</div>
+  </div>
+
+  <div class="p-5 grid grid-cols-2 gap-3">
+    <app-metric label="Charge" [value]="pct(device().batteryPct)" />
+    <app-metric label="Health" [value]="pct(device().batteryHealthPct)" hint="Lower = aging battery" />
+  </div>
+</mat-card>

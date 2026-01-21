@@ -1,0 +1,75 @@
+<div class="flex flex-col gap-4">
+  <div class="flex flex-col md:flex-row md:items-end gap-3 justify-between">
+    <div>
+      <h1 class="text-3xl font-semibold">Devices</h1>
+      <p class="text-slate-600 mt-1">All important health signals per device in one place.</p>
+    </div>
+
+    <mat-form-field appearance="outline" class="w-full md:w-80">
+      <mat-label>Search</mat-label>
+      <input matInput (input)="query.set(($any($event.target).value || '').trim())" placeholder="Name, owner, tag…" />
+    </mat-form-field>
+  </div>
+
+  <mat-card class="!rounded-3xl !border !border-slate-200 !shadow-none overflow-hidden">
+    <div class="p-4 border-b border-slate-200 flex items-center justify-between">
+      <div class="font-semibold">Fleet</div>
+      <div class="text-sm text-slate-500">{{ filtered().length }} devices</div>
+    </div>
+
+    <div class="overflow-auto">
+      <table mat-table [dataSource]="filtered()" class="min-w-[900px] w-full">
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Device</th>
+          <td mat-cell *matCellDef="let d">
+            <a class="font-semibold text-brand-700 hover:underline" [routerLink]="['/devices', d.id]">
+              {{ d.name }}
+            </a>
+            <div class="text-xs text-slate-500">{{ d.model }}</div>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let d">
+            <app-status-pill
+              [text]="d.onlineStatus"
+              [tone]="d.onlineStatus === 'ONLINE' ? SomeEnum.GOOD : SomeEnum.BAD">
+            </app-status-pill>
+            <div class="text-xs text-slate-500 mt-1">Last seen: {{ d.lastSeen | date:'short' }}</div>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="perf">
+          <th mat-header-cell *matHeaderCellDef>Performance</th>
+          <td mat-cell *matCellDef="let d" class="text-sm text-slate-700">
+            CPU avg: <span class="font-medium">{{ pct(d.cpuAvgPct) }}</span>
+            <span class="text-slate-400">·</span>
+            spike: <span class="font-medium">{{ pct(d.cpuSpikePct) }}</span><br />
+            RAM: <span class="font-medium">{{ pct(d.ramUsedPct) }}</span>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="disk">
+          <th mat-header-cell *matHeaderCellDef>Disk</th>
+          <td mat-cell *matCellDef="let d" class="text-sm text-slate-700">
+            Used: <span class="font-medium">{{ pct(d.diskUsedPct) }}</span><br />
+            SMART: <span class="font-medium">{{ d.smartStatus ?? '—' }}</span>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="security">
+          <th mat-header-cell *matHeaderCellDef>Security</th>
+          <td mat-cell *matCellDef="let d" class="text-sm text-slate-700">
+            Up-to-date: <span class="font-medium">{{ d.upToDate === true ? 'Yes' : d.upToDate === false ? 'No' : '—' }}</span><br />
+            Updates: <span class="font-medium">{{ d.pendingSecurityUpdates ?? '—' }}</span>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="cols"></tr>
+        <tr mat-row *matRowDef="let row; columns: cols;"></tr>
+      </table>
+    </div>
+  </mat-card>
+</div>

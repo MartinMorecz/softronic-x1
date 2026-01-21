@@ -1,0 +1,19 @@
+<mat-card class="!rounded-3xl !border !border-slate-200 !shadow-none">
+  <div class="p-5 flex items-center justify-between border-b border-slate-200">
+    <div class="font-semibold flex items-center gap-2">
+      <mat-icon>speed</mat-icon>
+      Performance & Load
+    </div>
+    <div class="text-xs text-slate-500">Spot slow / maxed devices</div>
+  </div>
+
+  <div class="p-5 grid grid-cols-2 gap-3">
+    <app-metric label="CPU avg" [value]="pct(device().cpuAvgPct)" />
+    <app-metric label="CPU spike" [value]="pct(device().cpuSpikePct)" />
+    <app-metric label="RAM used" [value]="pct(device().ramUsedPct)" />
+    <app-metric label="Processes" [value]="num(device().processCount)" />
+    <div class="col-span-2">
+      <app-metric label="Uptime" [value]="uptime(device().uptimeSeconds)" hint="Since last reboot" />
+    </div>
+  </div>
+</mat-card>
