@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -13,7 +13,6 @@ import { AuthService } from '../../auth/auth.service';
   standalone: true,
   selector: 'app-login-page',
   imports: [
-    CommonModule,
     ReactiveFormsModule,
     MatCardModule,
     MatButtonModule,
@@ -21,7 +20,7 @@ import { AuthService } from '../../auth/auth.service';
     MatInputModule,
     MatIconModule,
     RouterLink
-  ],
+],
   templateUrl: 'login-page.component.html'
 })
 export class LoginPageComponent {

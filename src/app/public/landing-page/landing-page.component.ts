@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -10,7 +10,7 @@ import {AuthService} from '../../auth/auth.service';
 @Component({
   standalone: true,
   selector: 'app-landing-page',
-  imports: [CommonModule, MatButtonModule, MatIconModule, MatCardModule, MatToolbarModule],
+  imports: [MatButtonModule, MatIconModule, MatCardModule, MatToolbarModule],
   templateUrl: 'landing-page.component.html'
 })
 export class LandingPageComponent implements OnInit {

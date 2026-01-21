@@ -4,7 +4,9 @@
       <mat-icon>battery_std</mat-icon>
       Battery
     </div>
-    <div class="text-xs text-slate-500" *ngIf="device().charging">Charging</div>
+    @if (device().charging) {
+      <div class="text-xs text-slate-500">Charging</div>
+    }
   </div>
 
   <div class="p-5 grid grid-cols-2 gap-3">

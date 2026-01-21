@@ -1,5 +1,5 @@
 import {Component, input} from '@angular/core';
-import {CommonModule} from '@angular/common';
+
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
@@ -9,7 +9,7 @@ import {Device} from '../../../core/models';
 @Component({
   selector: 'app-storage-tile',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatIconModule, MatDividerModule, MetricComponent],
+  imports: [MatCardModule, MatIconModule, MatDividerModule, MetricComponent],
   templateUrl: 'storage-tile.component.html',
   styleUrl: 'storage-tile.component.css'
 })

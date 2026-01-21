@@ -1,5 +1,5 @@
 import {Component, input, Input} from '@angular/core';
-import {CommonModule} from '@angular/common';
+
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {Device} from '../../../core/models';
@@ -10,7 +10,7 @@ import {SomeEnum} from '../../../core/enums';
 @Component({
   selector: 'app-security-tile',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatIconModule, MetricComponent, StatusPillComponent],
+  imports: [MatCardModule, MatIconModule, MetricComponent, StatusPillComponent],
   templateUrl: './security-tile.component.html',
   styleUrls: ['./security-tile.component.css']
 })

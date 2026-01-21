@@ -1,5 +1,5 @@
 import {Component, input} from '@angular/core';
-import {CommonModule} from '@angular/common';
+
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MetricComponent} from '../../../shared/metric/metric.component';
@@ -9,7 +9,7 @@ import {formatUptime} from '../../../core/utils';
 @Component({
   selector: 'app-performance-tile',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatIconModule, MetricComponent],
+  imports: [MatCardModule, MatIconModule, MetricComponent],
   templateUrl: 'performance-tile.component.html'
 })
 export class PerformanceTileComponent {
