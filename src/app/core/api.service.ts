@@ -1,13 +1,25 @@
-import { Injectable, computed, signal } from '@angular/core';
+import {Injectable, computed, signal, inject} from '@angular/core';
 import { AlertEvent, Device } from './models';
+import {environment} from "../../enviroment/enviroments";
+import {HttpClient} from "@angular/common/http";
+import {User} from "../shared/model/User";
+import {ResponseId} from "../shared/model/ResponseId";
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
+  private base = environment.apiBaseUrl;
+  private http = inject(HttpClient);
+
   private readonly _devices = signal<Device[]>(SEED_DEVICES);
   private readonly _alerts = signal<AlertEvent[]>(SEED_ALERTS);
 
   devices = computed(() => this._devices());
   alerts = computed(() => this._alerts().slice().sort((a, b) => b.occurredAt.localeCompare(a.occurredAt)));
+
+
+  joinWaitinglist(user: User) {
+    return this.http.post<User>(`${this.base}/user/join`, user);
+  }
 
   deviceById(id: string) {
     return computed(() => this._devices().find(d => d.id === id));

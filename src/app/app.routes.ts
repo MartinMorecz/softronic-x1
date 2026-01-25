@@ -11,19 +11,19 @@ import {SettingPageComponent} from './public/setting-page/setting-page.component
 
 export const routes: Routes = [
   { path: '', component: LandingPageComponent },      // public (redirects to /dashboard if authed)
-  { path: 'login', component: LoginPageComponent },   // public
+  // { path: 'login', component: LoginPageComponent },   // public
 
-  {
-    path: '',
-    component: AppShellComponent,
-    canActivate: [authGuard],
-    children: [
-      { path: 'devices', component: DevicesPageComponent },
-      { path: 'devices/:id', component: DeviceDetailPageComponent },
-      { path: 'settings', component: SettingPageComponent },
-      { path: 'alerts', component: AlertsPageComponent },
-    ]
-  },
+  // {
+  //   path: '',
+  //   component: AppShellComponent,
+  //   canActivate: [authGuard],
+  //   children: [
+  //     { path: 'devices', component: DevicesPageComponent },
+  //     { path: 'devices/:id', component: DeviceDetailPageComponent },
+  //     { path: 'settings', component: SettingPageComponent },
+  //     { path: 'alerts', component: AlertsPageComponent },
+  //   ]
+  // },
 
   { path: '**', redirectTo: '' }
   // { path: '', redirectTo: 'app/devices', pathMatch: 'full' },

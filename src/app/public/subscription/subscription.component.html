@@ -1,0 +1,14 @@
+<p>subscribtion works!</p>
+<div class="!bg-slate-500 !text-blue-500">
+    <form [formGroup]="subscriptionForm">
+        <mat-form-field>
+            <mat-label class="!text-blue-500">Email *</mat-label>
+            <input type="text" [formControl]="firstName">
+        @if (firstName.hasError('required') && (firstName.touched || firstName.dirty)) {
+    <!--        <mat-hint>First Name is <strong>reuqired</strong></mat-hint>-->
+            <mat-error>First Name is <strong>reuqired</strong></mat-error>
+        }
+        </mat-form-field>
+
+    </form>
+</div>

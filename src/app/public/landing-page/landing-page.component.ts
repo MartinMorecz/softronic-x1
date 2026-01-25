@@ -1,19 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 
-import { Router } from '@angular/router';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import {Router} from '@angular/router';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import {AuthService} from '../../auth/auth.service';
+import {MatDialog} from "@angular/material/dialog";
+import {SubscriptionComponent} from "../subscription/subscription.component";
+import {HeaderComponent} from "./header/header.component";
+import {SHeroComponent} from "./s-hero/s-hero.component";
+import {SHowWorksComponent} from "./s-how-works/s-how-works.component";
+import {SFeaturesComponent} from "./s-features/s-features.component";
+import {STargetAudienceComponent} from "./s-target-audience/s-target-audience.component";
+import {SPricingComponent} from "./s-pricing/s-pricing.component";
 
 @Component({
   standalone: true,
   selector: 'app-landing-page',
-  imports: [MatButtonModule, MatIconModule, MatCardModule, MatToolbarModule],
+  imports: [MatButtonModule, MatIconModule, MatCardModule, MatToolbarModule, HeaderComponent, SHeroComponent, SHowWorksComponent, SFeaturesComponent, STargetAudienceComponent, SPricingComponent],
   templateUrl: 'landing-page.component.html'
 })
 export class LandingPageComponent implements OnInit {
+
+  readonly dialog = inject(MatDialog);
+
   features = [
     { icon: 'grid_view', title: 'Device health at a glance', desc: 'See status for all your machines in one clean view.' },
     { icon: 'speed', title: 'CPU & RAM monitoring', desc: 'Spot overloaded devices and bottlenecks in seconds.' },
@@ -33,6 +44,25 @@ export class LandingPageComponent implements OnInit {
   }
 
   goLogin() {
+    // login needs to be modified via dialog
     this.router.navigateByUrl('/login');
+  }
+
+  goRegister() {
+    // see login
+    console.log("Registration needs to be implemented in the application.");
+  }
+
+  doSubscribe(){
+    const dialogRef = this.dialog.open(SubscriptionComponent,
+        {
+          width: '400px',
+          minHeight: '600px'
+        });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log(`Dialog result: ${result}`);
+      }
+    })
   }
 }

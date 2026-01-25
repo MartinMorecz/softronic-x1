@@ -1,0 +1,53 @@
+<!-- Title / Description -->
+<div class="!bg-[#070A12] !text-slate-100 !rounded-sm">
+<div class="px-6 pt-2 text-center">
+    <h2 class="m-0 text-3xl font-semibold !text-slate-100">Join Waitlist</h2>
+    <p class="mb-2 text-[10px] !text-shadow-slate-500">
+        Get notified when the product is ready to launch.
+    </p>
+</div>
+
+<!-- Content -->
+<form [formGroup]="form" (ngSubmit)="save()" class="px-6 pb-2">
+    <div mat-dialog-content class="!m-0 !p-0">
+        <div class="grid gap-4">
+            <div class="grid gap-3">
+                <label class="text-sm font-medium !text-cyan-800" for="name">Firstname *</label>
+                <input id="firstname" class="w-full focus:!border-cyan-400 !text-slate-100 invalid:!border-rose-400" hlmInput type="text" placeholder="first name" [formControl]="firstName">
+            </div>
+
+            <div class="grid gap-3">
+                <label class="text-sm font-medium !text-cyan-800" for="name">Lastname</label>
+                <input id="lastname" class="w-full focus:!border-cyan-400 !text-slate-100 invalid:!border-rose-400" [formControl]="lastName" placeholder="last name" hlmInput type="text"/>
+            </div>
+
+            <div class="grid gap-3">
+                <label class="text-sm font-medium !text-cyan-800" for="username">E-Mail *</label>
+                <input type="email" class="w-full focus:!border-cyan-400 !text-slate-100 invalid:!border-rose-400" id="email" [formControl]="email" placeholder="email" hlmInput/>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div mat-dialog-actions class="mt-5! p-0! px-6 pb-6 pt-4 flex justify-end gap-3">
+        <button
+                hlmBtn
+                type="button"
+                class="rounded-sm text-cyan-600 border-cyan-600 hover:border-red-500 hover:text-red-500 border-2 bg-black"
+                (click)="close()"
+        >
+            Cancel
+        </button>
+
+        <button
+                hlmBtn
+                class="rounded-sm bg-cyan-600 text-slate-100 hover:bg-cyan-500"
+                type="submit"
+                [disabled]="form.invalid"
+                (click)="save()"
+        >
+            Save changes
+        </button>
+    </div>
+</form>
+</div>
