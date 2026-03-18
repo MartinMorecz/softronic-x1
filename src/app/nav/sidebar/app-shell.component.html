@@ -1,0 +1,109 @@
+<!--<div class="min-h-screen text-slate-100 dark">-->
+<!--    <div class="flex min-h-screen" >-->
+<!--    &lt;!&ndash; Desktop sidebar &ndash;&gt;-->
+<!--        <div hlmSidebarWrapper>-->
+<!--            <hlm-sidebar>-->
+<!--                <div hlmSidebarHeader>-->
+<!--                    <div class="p-4 border-b border-white/10">-->
+<!--                                        <img-->
+<!--                                                ngSrc="softronic_logo_new.png"-->
+<!--                                                alt="Softronic device health & status monitoring dashboard"-->
+<!--                                                height="50"-->
+<!--                                                width="155"-->
+<!--                                        />-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div hlmSidebarContent>-->
+<!--                    <div hlmSidebarGroup>-->
+<!--                        <div hlmSidebarGroupLabel>Menu</div>-->
+<!--                        <div hlmSidebarGroupContent>-->
+<!--                            <ul hlmSidebarMenu>-->
+<!--                                <li hlmSidebarMenuItem>-->
+<!--                                    <a  hlmSidebarMenuButton-->
+<!--                                        id="dashboard"-->
+<!--                                        routerLink="/devices"-->
+<!--                                        routerLinkActive="bg-white/5 border-white/10">-->
+<!--                                        <ng-icon hlm name="lucideCompass" color="skyblue"/>-->
+<!--                                        <span>Devices</span>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <li hlmSidebarMenuItem>-->
+<!--                                    <a  hlmSidebarMenuButton-->
+<!--                                        id="alerts"-->
+<!--                                        routerLink="/alerts"-->
+<!--                                        routerLinkActive="bg-white/5 border-white/10"-->
+<!--                                        >-->
+<!--                                        <ng-icon hlm name='lucideAlertOctagon' color="yellow"/>-->
+<!--                                        <span>Alerts</span>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <li hlmSidebarMenuItem>-->
+<!--                                    <a  hlmSidebarMenuButton-->
+<!--                                        id="tasks"-->
+<!--                                        routerLink="/tasks"-->
+<!--                                        routerLinkActive="bg-white/5 border-white/10"-->
+<!--                                        >-->
+<!--                                        <ng-icon hlm name='lucideListCheck' />-->
+<!--                                        <span>Tasks</span>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <li hlmSidebarMenuItem>-->
+<!--                                    <a  hlmSidebarMenuButton-->
+<!--                                        id="settings"-->
+<!--                                        routerLink="/settings"-->
+<!--                                        routerLinkActive="bg-white/5 border-white/10"-->
+<!--                                    >-->
+<!--                                        <ng-icon hlm name='lucideSettings2' color="orange"/>-->
+<!--                                        <span>Settings</span>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div hlmSidebarFooter>-->
+<!--                    <div class="flex justify-between items-center">-->
+<!--                        <div class="flex flex-row items-center p-2">-->
+<!--                            <hlm-avatar>-->
+<!--                                <img hlmAvatarImage src="favicon.ico" alt="user avatar">-->
+<!--                                <span hlmAvatarFallback class="bg-black text-amber-50">{{ usernameAlternative }}</span>-->
+<!--                            </hlm-avatar>-->
+<!--                            <span class="text-xs px-2">{{ username }}</span>-->
+<!--                        </div>-->
+<!--                        <div>-->
+<!--                            <button hlmBtn (click)="logout()" class="size-8 bg-red-400 hover:bg-red-700 focus:bg-red-700">-->
+<!--                                <ng-icon hlm name="lucideLogOut" size="sm"></ng-icon>-->
+<!--                            </button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </hlm-sidebar>-->
+
+<!--        &lt;!&ndash; Main column &ndash;&gt;-->
+<!--            <div class="flex-1 min-w-0">-->
+<!--                <main class="mx-auto w-full max-w-6xl p-4 md:p-6">-->
+<!--                    <router-outlet />-->
+<!--                </main>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<div class="dark">
+    <spartan-app-sidebar-inset [class]="'dark'">
+        <main hlmSidebarInset>
+            <spartan-site-header-inset />
+            <div class="flex flex-1 flex-col gap-4 p-4">
+
+<!--                <div class="grid auto-rows-min gap-4 md:grid-cols-3">-->
+<!--                    <div class="bg-muted/50 aspect-video rounded-xl"></div>-->
+<!--                    <div class="bg-muted/50 aspect-video rounded-xl"></div>-->
+<!--                    <div class="bg-muted/50 aspect-video rounded-xl"></div>-->
+<!--                </div>-->
+                <div class="bg-muted/50 min-h-screen flex-1 rounded-xl md:min-h-min">
+                    <router-outlet/>
+
+                </div>
+            </div>
+        </main>
+    </spartan-app-sidebar-inset>
+</div>

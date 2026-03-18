@@ -14,11 +14,12 @@ import {SHowWorksComponent} from "./s-how-works/s-how-works.component";
 import {SFeaturesComponent} from "./s-features/s-features.component";
 import {STargetAudienceComponent} from "./s-target-audience/s-target-audience.component";
 import {SPricingComponent} from "./s-pricing/s-pricing.component";
+import {FooterComponent} from "../../shared/components/footer/footer.component";
 
 @Component({
   standalone: true,
   selector: 'app-landing-page',
-  imports: [MatButtonModule, MatIconModule, MatCardModule, MatToolbarModule, HeaderComponent, SHeroComponent, SHowWorksComponent, SFeaturesComponent, STargetAudienceComponent, SPricingComponent],
+    imports: [MatButtonModule, MatIconModule, MatCardModule, MatToolbarModule, HeaderComponent, SHeroComponent, SHowWorksComponent, SFeaturesComponent, STargetAudienceComponent, SPricingComponent, FooterComponent],
   templateUrl: 'landing-page.component.html'
 })
 export class LandingPageComponent implements OnInit {

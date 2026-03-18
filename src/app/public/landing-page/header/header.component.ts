@@ -1,14 +1,18 @@
 import {Component, inject} from '@angular/core';
-import {MatButton} from "@angular/material/button";
 import {MatToolbar} from "@angular/material/toolbar";
 import {Router} from "@angular/router";
 import {LandingpageService} from "../service/landingpage.service";
+import {HlmButton} from "@spartan-ng/helm/button";
+import {NgOptimizedImage} from "@angular/common";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 's-header',
   imports: [
-    MatButton,
-    MatToolbar
+    MatToolbar,
+    HlmButton,
+    NgOptimizedImage,
+    MatButton
   ],
   templateUrl: './header.component.html'
 })

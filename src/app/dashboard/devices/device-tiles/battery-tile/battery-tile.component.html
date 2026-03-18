@@ -1,0 +1,45 @@
+<!--<mat-card class="rounded-3xl border border-slate-200 shadow-none ">-->
+<!--  <div class="p-5 flex items-center justify-between border-b bg-blackborder-slate-200">-->
+<!--    <div class="font-semibold flex items-center gap-2">-->
+<!--      <mat-icon>battery_std</mat-icon>-->
+<!--      Battery-->
+<!--    </div>-->
+<!--    @if (device().charging) {-->
+<!--      <div class="text-xs text-shadow-slate-950">Charging</div>-->
+<!--    }-->
+<!--  </div>-->
+
+<!--  <div class="p-5 grid grid-cols-2 gap-3">-->
+<!--    <app-metric label="Charge" [value]="pct(device().batteryPct)" />-->
+<!--    <app-metric label="Health" [value]="pct(device().batteryHealthPct)" hint="Lower = aging battery" />-->
+<!--  </div>-->
+<!--</mat-card>-->
+
+<section hlmCard>
+    <div hlmCardHeader>
+        <p>Battery</p>
+        @if (device().battery?.charging){
+            <div class="text-xs">Charging</div>
+        }
+    </div>
+    <hr>
+    <div hlmCardContent class="p-5 grid grid-cols-2 gap-3">
+        <app-metric label="Charge" [value]="pct(device().battery?.batteryPct)" />
+        <app-metric label="Health" [value]="pct(device().battery?.batteryHealthPct)" hint="Lower = aging battery" />
+    </div>
+    <hr>
+    @if (battery.isLoading()) {
+        <p>values are loading...</p>
+    } @else if (battery.value()) {
+        <div hlmCardContent class="p-5 grid grid-cols-2 gap-3">
+            <app-metric label="Charge" [value]="pct(battery.value()?.batteryPct)" />
+            <app-metric label="Health" [value]="pct(battery.value()?.batteryHealthPct)" hint="Lower = aging battery" />
+            <app-metric label="Time to fully Charge" [value]="hr(battery.value()?.chargingTime)"/>
+            <app-metric label="Charging status" [value]="battery.value()?.charging?.toString() || 'wichser'"/>
+        </div>
+    } @else if (battery.error()){
+        <p>Something went wrong with reading the battery data.</p>
+    }
+
+
+</section>

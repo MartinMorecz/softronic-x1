@@ -1,13 +1,14 @@
 import {Injectable, computed, signal, inject} from '@angular/core';
 import { AlertEvent, Device } from './models';
 import {environment} from "../../enviroment/enviroments";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, httpResource} from "@angular/common/http";
 import {User} from "../shared/model/User";
 import {ResponseId} from "../shared/model/ResponseId";
+import {Battery} from "../dashboard/devices/device-tiles/battery-tile/model/battery";
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
-  private base = environment.apiBaseUrl;
+   base = environment.apiBaseUrl;
   private http = inject(HttpClient);
 
   private readonly _devices = signal<Device[]>(SEED_DEVICES);
@@ -15,7 +16,14 @@ export class ApiService {
 
   devices = computed(() => this._devices());
   alerts = computed(() => this._alerts().slice().sort((a, b) => b.occurredAt.localeCompare(a.occurredAt)));
+  // battery =  / /
 
+  batteryById(id: string) {
+    // return this.http.get<Battery>(`${this.base}/battery/${id}`, {responseType: "json"}).pipe().subscribe(resulte => {
+    //   return resulte;
+    // });
+  // return httpResource<Battery>(() => `${this.base}/battery/${id}`).value();
+  }
 
   joinWaitinglist(user: User) {
     return this.http.post<User>(`${this.base}/user/join`, user);
@@ -47,9 +55,11 @@ const SEED_DEVICES: Device[] = [
     lastSeen: new Date(Date.now() - 40_000).toISOString(),
     avgLatencyMs: 28,
     packetLossPct: 0.2,
-    batteryPct: 62,
-    batteryHealthPct: 78,
-    charging: false,
+    battery: {
+      batteryPct: 62,
+      batteryHealthPct: 78,
+      charging: false,
+    },
     cpuAvgPct: 34,
     cpuSpikePct: 92,
     ramUsedPct: 71,

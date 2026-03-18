@@ -1,3 +1,5 @@
+import {Battery} from "../dashboard/devices/device-tiles/battery-tile/model/battery";
+
 export type DeviceId = string;
 
 export type SmartStatus = 'OK' | 'WARN' | 'FAIL' | 'UNKNOWN';
@@ -28,9 +30,7 @@ export type Device = {
   packetLossPct?: number;
 
   // Battery (if applicable)
-  batteryPct?: number;
-  batteryHealthPct?: number; // 0-100
-  charging?: boolean;
+  battery? : Battery;
 
   // Performance
   cpuAvgPct?: number;    // 0-100
